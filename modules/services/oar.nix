@@ -189,6 +189,11 @@ in
         enable = mkEnableOption "OAR node";
         register = {
           enable = mkEnableOption "Register node into OAR server";
+          nbResources = mkOption {
+            type = types.str;
+            default = "1";
+            description = "Number of resources in the node";
+          };
           extraCommand = mkOption {
             type = types.str;
             default = "";
@@ -388,8 +393,9 @@ in
       after = [ "network.target" "oar-user-init" "oar-conf-init" "oar-node" ];
       serviceConfig.Type = "oneshot";
       path = [ pkgs.hostname ];
+      # script = addResourceToNode cfg.node.register.nbResources;
       script = concatStringsSep "\n" [''
-        /run/wrappers/bin/oarnodesetting -a -s Alive''
+        for i in $(seq ${cfg.node.register.nbResources});do /run/wrappers/bin/oarnodesetting -a -s Alive;done''
         (optionalString (cfg.node.register.extraCommand != "") ''
           ${cfg.node.register.extraCommand}
         '')
