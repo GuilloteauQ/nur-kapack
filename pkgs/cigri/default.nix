@@ -9,12 +9,13 @@ let
   in
     stdenv.mkDerivation rec {
   name = "cigri-3.0.0";
-  src = fetchFromGitHub {
-    owner = "oar-team";
-    repo = "cigri";
-    rev = "904bed81d61f5565bd5b86c345241bc0c511c317";
-    sha256 = "001rapmzp08314c4y9birmfi6njgyvn7f95735qrd0443kfwhd19";
-  };
+  src = ~/cigri;
+  # src = fetchFromGitHub {
+  #   owner = "oar-team";
+  #   repo = "cigri";
+  #   rev = "904bed81d61f5565bd5b86c345241bc0c511c317";
+  #   sha256 = "001rapmzp08314c4y9birmfi6njgyvn7f95735qrd0443kfwhd19";
+  # };
   
   buildInputs = [ rubyEnv rubyEnv.wrappedRuby rubyEnv.bundler bash perl ];
   
