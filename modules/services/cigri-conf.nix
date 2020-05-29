@@ -29,7 +29,7 @@ DEFAULT_JOB_WALLTIME = "01:00:00"
 # (meaning we should stop queuing jobs until the stress factor becomes
 # again acceptable). Note that a cluster under stress is not blacklisted
 # so that we can still update job statuses.
-STRESS_FACTOR="0.8"
+STRESS_FACTOR="80.0"
 
 #############################################################################
 ## LOGGING OPTIONS
@@ -71,6 +71,7 @@ REST_CLIENT_KEY_FILE="/etc/cigri/ssl/cigri.key"
 # from looping too fast and let the time to clusters for jobs digestion
 # RUNNER_MIN_CYCLE_DURATION = "15"
 RUNNER_MIN_CYCLE_DURATION = "30"
+#RUNNER_MIN_CYCLE_DURATION = "5"
 # Default initial number of jobs to submit
 # The runner submits several jobs at a time using oar array jobs.
 # This number specifies the initial number of jobs to submit. Then,
