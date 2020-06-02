@@ -5,10 +5,10 @@ python37Packages.buildPythonPackage rec {
   version = "3.0.0.dev4";  
 
   src = fetchFromGitHub {
-     owner = "oar-team";
-     repo = "oar3";
-     rev = "9cb30d1627d65ee41fb52cd39eea1f8404c4c839";
-     sha256 = "1s5s2lg5z61lgr5j6ji07fpgzii8h260jz9jqsgd9vwkdgvl06d8";
+      owner = "oar-team";
+      repo = "oar3";
+      rev = "0897ac61d1372844dd071711f491d7e11c83c63a";
+      sha256 = "1fnw12hrx5cndyd9bzwsg9axdabjhj95kyn830iaih853wm43579";
   };
   #src = /home/auguste/dev/oar3;
 
@@ -31,6 +31,7 @@ python37Packages.buildPythonPackage rec {
     psycopg2
     remote_pdb # for debug only
     passlib
+    pyyaml
   ];
 
   # Tests do not pass
