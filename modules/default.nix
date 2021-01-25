@@ -7,4 +7,6 @@
   cigri = ./services/cigri.nix;
   my-startup = ./services/my-startup.nix;
   phpfpm0 = ./services/phpfpm0.nix;
+
+  fileserver_load = ./services/fileserver_load.nix;
 }
