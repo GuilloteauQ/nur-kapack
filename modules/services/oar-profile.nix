@@ -3,7 +3,7 @@
 with lib;
 
 let
-  cfg = config.services.fileserver_load;
+  cfg = config.services.oar-profile;
 in
 {
 
@@ -11,9 +11,9 @@ in
   meta.maintainers = [ maintainers.augu5te ];
 
   options = {
-    services.fileserver_load = {
+    services.oar-profile = {
 
-      enable = mkEnableOption "Fileserver Load";
+      enable = mkEnableOption "OAR Profile";
       script =  mkOption {
           type = types.str;
           default = "/srv/cigri/cigri-expe/misc/remote_loadavg_sensor.sh";
@@ -30,11 +30,10 @@ in
 
   ###### implementation
   config =  mkIf ( cfg.enable)  {
-    systemd.services.fileserver_load = {
-      description = "Fileserver Load";
+    systemd.services.oar-profile = {
+      description = "OAR Profile";
       wantedBy = [ "multi-user.target" ];
-      before = [ "config.services.my-startup" ];
-      after = [ "network.target"];
+      # after = [ "config.services.my-startup" ];
       path = cfg.path;
       # serviceConfig.Type = "oneshot";
       script = cfg.script;

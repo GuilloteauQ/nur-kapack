@@ -9,4 +9,5 @@
   phpfpm0 = ./services/phpfpm0.nix;
 
   fileserver_load = ./services/fileserver_load.nix;
+  oar-profile = ./services/oar-profile.nix;
 }
